@@ -12,6 +12,7 @@
 ###############################################################################
 #*.cs     diff=csharp
 
+#TODO: Consider doing something with binary merging
 ###############################################################################
 # Set the merge driver for project and solution files
 #
