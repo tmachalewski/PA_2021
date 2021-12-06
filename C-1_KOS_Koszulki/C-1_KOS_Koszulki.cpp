@@ -27,7 +27,9 @@ int main()
         freeShirts -= countOfPlayersWithGivenPoints[i];
     }
 
-    int neededShirts = k - freeShirts; //no abs(freeShirst) because you dont have to use all shirst for all players
+    //this is wrong -> "no abs(freeShirst) because you dont have to use all shirst for all players"
+    //task states, that k<=n
+    int neededShirts = k - freeShirts; 
     cout << neededShirts;
 }
 
