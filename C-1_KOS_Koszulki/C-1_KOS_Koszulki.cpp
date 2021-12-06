@@ -4,11 +4,14 @@
 #include <iostream>
 using namespace std;
 
+#define CERR_NEEDED false
+
 int const MAX_POINTS = 120;
 int const MAX_POINTS_BUFFER = MAX_POINTS + 1;
+
 int main()
 {
-    int n, int k;
+    int n, k;
     cin >> n >> k;
 
     int countOfPlayersWithGivenPoints[MAX_POINTS_BUFFER]{};
@@ -19,12 +22,13 @@ int main()
     }
 
     int freeShirts = k;
-    for (int i = MAX_POINTS; i > 0; i++) {
+    for(int i = MAX_POINTS; i > 0; --i) {
         if (freeShirts <= 0) break;
         freeShirts -= countOfPlayersWithGivenPoints[i];
     }
 
-    return k - freeShirts;
+    int neededShirts = k - freeShirts; //no abs(freeShirst) because you dont have to use all shirst for all players
+    cout << neededShirts;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

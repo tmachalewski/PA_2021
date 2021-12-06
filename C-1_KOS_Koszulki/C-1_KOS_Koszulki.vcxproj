@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="C-1_KOS_Koszulki.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="test01.in" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
