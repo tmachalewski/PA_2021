@@ -4,51 +4,49 @@
 #include <iostream>
 #include <unordered_set>
 #include <queue>
+#include <unordered_map>
 using namespace std;
+
+unsigned long const MAX_WINES = 5 * 100000 + 1;
 
 int main()
 {
-    int n, k;
+    unsigned int n, k;
     cin >> n >> k;
 
-    int* wines = new int[n]{};
+    int* wines = new int[n] {};
     unordered_set<int> uniques;
-    for (int i = 0; i < n; ++i) {
+    queue<pair<int, int>> uniquesFirstOccurrence;
+
+    for (unsigned int i = 0; i < n; ++i) {
         cin >> wines[i];
-        uniques.insert(wines[i]);
+        if (uniques.find(wines[i]) == uniques.end()){
+            uniques.insert(wines[i]);
+            uniquesFirstOccurrence.push(pair<int,int>(wines[i], i));
+        }
     }
 
-    if (uniques.size() < k) {
+    if (uniquesFirstOccurrence.size() < k) {
         cout << -1;
         return 0;
     }
     
     unordered_set<int> metUniques;
-    queue<int> toMove;
     int neededSwaps = 0;
-    for (int i = 0; i < n; i++) {
+    for (unsigned int i = 0; i < k; i++) {
         if (metUniques.find(wines[i]) == metUniques.end()) //is this the first occurance?
         {      
             metUniques.insert(wines[i]);
-            if (i > k - 1) // do i need to move this unique to the left part of shelf?
-            {
-                neededSwaps += (i - toMove.front());
-                toMove.pop();
-            }
-            else if(uniques.size() - metUniques.size() >= k - i) //do i need to push this unique backward to make place for more uniques?
-            {
-                neededSwaps += (i - toMove.front());
-                toMove.pop();
-            }
+            uniquesFirstOccurrence.pop();
         }
         else {
-            if (uniques.size() - metUniques.size() >= i) //will i need to make place for uniques
-            {
-                toMove.push(i);
-            }
-            
+            pair<int, int> neededUnique = uniquesFirstOccurrence.front();
+            uniquesFirstOccurrence.pop();
+            metUniques.insert(neededUnique.first);
+            neededSwaps += (neededUnique.second - i);
         }
     }
+    cout << neededSwaps;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
