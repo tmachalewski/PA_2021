@@ -49,7 +49,7 @@ int main()
     long long maxNumberOfG = (4 * zeroes - ones) / 5;
     long long minNumberOfO = (-3 * zeroes + 2 * ones) / 5;
     for (a = 0; a <= n; ++a) {
-        for (c = 0; a <= n - a; ++c) {
+        for (c = 0; c <= n - a; ++c) {
             g = maxNumberOfG - 3 * a - 2 * c;
             o = minNumberOfO + 2 * a + c;
             if (o < 0) continue; //we could use this to start from bigger c or a
