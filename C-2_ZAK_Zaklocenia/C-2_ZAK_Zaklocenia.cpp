@@ -2,29 +2,34 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-void printCharNTimes(char c, long long n) {
-    for (long long i = 0; i < n; i++) cout << c;
-}
-
 void printSolution(long long a, long long c, long long g, long long o) {
-    printCharNTimes('a', a);
-    printCharNTimes('c', c);
-    printCharNTimes('g', g);
-    printCharNTimes('o', o);
+    cout << string(a, 'a');
+    cout << string(c, 'c');
+    cout << string(g, 'g');
+    cout << string(o, 'o');
 }
 
 int main()
 {
     long long n; //note, n>0
     cin >> n;
-
-    char zeroOrOne;
+    
+    //char zeroOrOne;
+    //long long zeroes = 0, ones = 0;
+    //for(long long i = 0; i < 8*n; ++i) {
+    //    cin >> zeroOrOne;
+    //    if (zeroOrOne == '0') zeroes++;
+    //    else ones++;
+    //}
+    
+    string str;
+    cin >> str;
     long long zeroes = 0, ones = 0;
     for(long long i = 0; i < 8*n; ++i) {
-        cin >> zeroOrOne;
-        if (zeroOrOne == '0') zeroes++;
+        if (str[i] == '0') zeroes++;
         else ones++;
     }
 
@@ -44,23 +49,45 @@ int main()
         return 0;
     }
     
-    //below letters are representative of different groups, each having different numbers of '1's and 'o's in their representation
-    long long a, c, g, o;
-    long long maxNumberOfG = (4 * zeroes - ones) / 5;
-    long long minNumberOfO = (-3 * zeroes + 2 * ones) / 5;
-    for (a = 0; a <= n; ++a) {
-        for (c = 0; a <= n - a; ++c) {
-            g = maxNumberOfG - 3 * a - 2 * c;
-            o = minNumberOfO + 2 * a + c;
-            if (o < 0) continue; //we could use this to start from bigger c or a
-            if (g < 0 || o + a + c>n) break;
-            if (a + c + g + o == n) {
-                printSolution(a, c, g, o);
-                return 0;
-            }
+    ////below letters are representative of different groups, each having different numbers of '1's and 'o's in their representation
+    //long long a, c, g, o;
+    //long long maxNumberOfG = (4 * zeroes - ones) / 5;
+    //long long minNumberOfO = (-3 * zeroes + 2 * ones) / 5;
+    //for (a = 0; a <= n; ++a) {
+    //    for (c = 0; a <= n - a; ++c) {
+    //        g = maxNumberOfG - 3 * a - 2 * c;
+    //        o = minNumberOfO + 2 * a + c;
+    //        if (o < 0) continue; //we could use this to start from bigger c or a
+    //        if (g < 0 || o + a + c>n) break;
+    //        if (a + c + g + o == n) {
+    //            printSolution(a, c, g, o);
+    //            return 0;
+    //        }
+    //    }
+    //}
+    //cout << "NIE";
+    for (int i = 0; i < n; i++) {
+        if (zeroes >= ones + 1) {
+            cout << "a";
+            zeroes -= 4;
+            ones -= 1;
+        }
+        else if(zeroes>=ones){
+            cout << "c";
+            zeroes -= 3;
+            ones -= 2;
+        }
+        else if (zeroes + 1 <= ones) {
+            cout << "g";
+            zeroes -= 2;
+            ones -= 3;
+        }
+        else {
+            cout << "o";
+            zeroes -= 1;
+            ones -= 4;
         }
     }
-    cout << "NIE";
     return 0;
 }
 
