@@ -68,6 +68,7 @@ int solveTest() {
 
     int savedCities = 0;
     int daysPassed=0;
+    int SPECIAL_CASE = 0;
     while (!deq_cities1.empty() || !deq_cities2.empty()||!werePartialyQuarantined.empty()) {
         
         //possible candidates for vacination for
@@ -91,7 +92,13 @@ int solveTest() {
             if (fullQuarantine.first - daysPassed >= ongoingQuarantine.first - daysPassed) {
                 savedCities += fullQuarantine.first - daysPassed;
                 fullQuarantine.second--;
-                if (fullQuarantine.second == 0) deq_cities1.pop_back();
+                if (SPECIAL_CASE_SIZE_OF_LEFT_BORDER_GROUP == SPECIAL_CASE_SIZE_OF_RIGHT_BORDER_GROUP) {
+                    SPECIAL_CASE++;
+                }
+                deq_cities1.pop_back();
+                if (fullQuarantine.second > 0) {
+                    deq_cities1.push_back(make_pair(fullQuarantine.first, fullQuarantine.second));
+                }
             }
             else {
                 savedCities += ongoingQuarantine.first - daysPassed;
@@ -100,14 +107,25 @@ int solveTest() {
             
         }
         else {
-            //quarantine this city group from 1 side, making it cities1
-            partialQuarantine.second--;
-            if (partialQuarantine.second == 0) deq_cities2.pop_back();
-            //magic equation: partialQuarantine.first - daysPassed
-            //it should be -2*daysPassed, but then we would have to remember when quarantine occured
-            //this way when we check which city we should vacinate
-            //we can subract from ongoingquarantine daysPassed and it is coherent
-            werePartialyQuarantined.push_back(make_pair(partialQuarantine.first - daysPassed, 1));
+            if (partialQuarantine.first - daysPassed >= ongoingQuarantine.first - daysPassed)
+            {
+                //quarantine this city group from 1 side, making it cities1
+                partialQuarantine.second--;
+                deq_cities2.pop_back();
+                if (partialQuarantine.second > 0) {
+                    deq_cities2.push_back(make_pair(partialQuarantine.first, partialQuarantine.second));
+                }
+                //magic equation: partialQuarantine.first - daysPassed
+                //it should be -2*daysPassed, but then we would have to remember when quarantine occured
+                //this way when we check which city we should vacinate
+                //we can subract from ongoingquarantine daysPassed and it is coherent
+                werePartialyQuarantined.push_back(make_pair(partialQuarantine.first - daysPassed, 1));
+            }
+            else {
+                savedCities += ongoingQuarantine.first - daysPassed;
+                werePartialyQuarantined.pop_back();
+            }
+            
         }
 
         //move to next day
@@ -117,6 +135,9 @@ int solveTest() {
             savedCities += deq_cities1.front().second;
             if (deq_cities1.front().first == SPECIAL_CASE_SIZE_OF_LEFT_BORDER_GROUP) savedCities--;
             if (deq_cities1.front().first == SPECIAL_CASE_SIZE_OF_RIGHT_BORDER_GROUP) savedCities--;
+            if (SPECIAL_CASE_SIZE_OF_LEFT_BORDER_GROUP == SPECIAL_CASE_SIZE_OF_RIGHT_BORDER_GROUP) {
+                savedCities += SPECIAL_CASE;
+            }
             deq_cities1.pop_front();
             
         }
