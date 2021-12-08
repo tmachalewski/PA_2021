@@ -142,6 +142,8 @@
     <ClCompile Include="B-1-ORA-Oranzada.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ora10p.in" />
+    <None Include="ora10q.in" />
     <None Include="test01.in" />
     <None Include="test02.in" />
     <None Include="test03.in" />

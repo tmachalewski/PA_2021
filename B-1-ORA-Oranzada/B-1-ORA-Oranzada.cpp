@@ -32,7 +32,7 @@ int main()
     }
     
     unordered_set<int> metUniques;
-    int neededSwaps = 0;
+    long long neededSwaps = 0;
     for (unsigned int i = 0; i < k; i++) {
         if (metUniques.find(wines[i]) == metUniques.end()) //is this the first occurance?
         {      

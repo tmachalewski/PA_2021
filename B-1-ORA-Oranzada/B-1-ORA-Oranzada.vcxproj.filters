@@ -29,5 +29,11 @@
     <None Include="test03.in">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="ora10q.in">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ora10p.in">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
