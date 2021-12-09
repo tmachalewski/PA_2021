@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="test01.in" />
+    <None Include="test02.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
