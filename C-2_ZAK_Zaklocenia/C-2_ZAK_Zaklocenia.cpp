@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
 
 void printCharNTimes(char c, long long n) {
@@ -9,22 +11,21 @@ void printCharNTimes(char c, long long n) {
 }
 
 void printSolution(long long a, long long c, long long g, long long o) {
-    printCharNTimes('a', a);
-    printCharNTimes('c', c);
-    printCharNTimes('g', g);
-    printCharNTimes('o', o);
+    cout << string(a, 'a');
+    cout << string(c, 'c');
+    cout << string(g, 'g');
+    cout << string(o, 'o');
 }
 
 int main()
 {
     long long n; //note, n>0
     cin >> n;
-
-    char zeroOrOne;
+    string str;
+    cin >> str;
     long long zeroes = 0, ones = 0;
     for(long long i = 0; i < 8*n; ++i) {
-        cin >> zeroOrOne;
-        if (zeroOrOne == '0') zeroes++;
+        if (str[i] == '0') zeroes++;
         else ones++;
     }
 
@@ -49,9 +50,12 @@ int main()
     long long maxNumberOfG = (4 * zeroes - ones) / 5;
     long long minNumberOfO = (-3 * zeroes + 2 * ones) / 5;
     for (a = 0; a <= n; ++a) {
-        for (c = 0; c <= n - a; ++c) {
+        if (maxNumberOfG < 0) continue;
+        if (minNumberOfO + 2*n < 0) continue;
+        c = max(0LL, -minNumberOfO - 2 * a);
+        for (; c + a <= n; ++c) {
             g = maxNumberOfG - 3 * a - 2 * c;
-            o = minNumberOfO + 2 * a + c;
+            o = minNumberOfO + 2 * a + c; // => 0 - minNumberOfO -  2 * a = c;
             if (o < 0) continue; //we could use this to start from bigger c or a
             if (g < 0 || o + a + c>n) break;
             if (a + c + g + o == n) {
