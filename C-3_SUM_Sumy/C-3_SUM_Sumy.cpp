@@ -54,7 +54,6 @@ int main()
                 weightOfSingleFishFromPreviousGroup = fishesWithSameWeight[0]->weight;
                 weightOfFishesEatableByPreviousGroup = fishesWithSameWeight[0]->weightOfEatableFishes;
                 canEatAtLeastOneFish = true;
-                
             }
             fishesWithSameWeight.clear();
             fishesWithSameWeight.push_back(&catfishes[i]);
@@ -90,6 +89,7 @@ int main()
             cout << 'N';
         }
     }
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
