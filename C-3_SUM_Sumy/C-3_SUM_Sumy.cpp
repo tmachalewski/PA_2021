@@ -8,9 +8,9 @@ using namespace std;
 class Catfish {
 public:
     int inputIndex;
-    long long weight;
+    int weight;
     long long weightOfEatableFishes;
-    Catfish(int inputIndex, long long weight) {
+    Catfish(int inputIndex, int weight) {
         this->inputIndex = inputIndex;
         this->weight = weight;
         this->weightOfEatableFishes = 0;
@@ -18,6 +18,7 @@ public:
 };
 int main()
 {
+    //TODO: there should be better way of handling first fish and last group
     int n;
     cin >> n;
     vector<Catfish> catfishes;
@@ -31,47 +32,55 @@ int main()
 
     bool canEatAtLeastOneFish = false;
 
-    vector<Catfish> fishesWithSameWeight;
+    vector<Catfish*> fishesWithSameWeight;
     int weightOfSingleFishFromPreviousGroup = 0;
+    int weightOfPreviousFish = 0;
     long long weightOfFishesEatableByPreviousGroup = 0;
     for (int i = 0; i < n; ++i) {
-        if (weightOfSingleFishFromPreviousGroup == catfishes[i].weight) {
-            fishesWithSameWeight.push_back(catfishes[i]);
+        if (weightOfPreviousFish == catfishes[i].weight) {
+            fishesWithSameWeight.push_back(&catfishes[i]);
         }
         else {
             long long eatableByThisGroup = weightOfFishesEatableByPreviousGroup + weightOfSingleFishFromPreviousGroup;
             if (canEatAtLeastOneFish) {
-                eatableByThisGroup += (fishesWithSameWeight.size()-1)*fishesWithSameWeight[0].weight;
+                eatableByThisGroup += (fishesWithSameWeight.size()-1)*(long long)fishesWithSameWeight[0]->weight;
             }
             
-            for (int j = 0; j < fishesWithSameWeight.size(); j++) {
-                fishesWithSameWeight[j].weightOfEatableFishes= eatableByThisGroup;
+            for (unsigned int j = 0; j < fishesWithSameWeight.size(); j++) {
+                fishesWithSameWeight[j]->weightOfEatableFishes= eatableByThisGroup;
             }
-            weightOfSingleFishFromPreviousGroup = catfishes[0].weight;
-            weightOfFishesEatableByPreviousGroup = catfishes[0].weightOfEatableFishes;
-            canEatAtLeastOneFish = true;
+
+            if (weightOfPreviousFish != 0) {
+                weightOfSingleFishFromPreviousGroup = fishesWithSameWeight[0]->weight;
+                weightOfFishesEatableByPreviousGroup = fishesWithSameWeight[0]->weightOfEatableFishes;
+                canEatAtLeastOneFish = true;
+                
+            }
             fishesWithSameWeight.clear();
+            fishesWithSameWeight.push_back(&catfishes[i]);
         }
+        weightOfPreviousFish = catfishes[i].weight;
     }
 
     //consider last group - could be done in previous loop, if some kind of guard was added
     long long eatableByThisGroup = weightOfFishesEatableByPreviousGroup + weightOfSingleFishFromPreviousGroup;
     if (canEatAtLeastOneFish) {
-        eatableByThisGroup += (fishesWithSameWeight.size() - 1) * fishesWithSameWeight[0].weight;
+        eatableByThisGroup += (fishesWithSameWeight.size() - 1) * (long long)fishesWithSameWeight[0]->weight;
     }
 
-    for (int j = 0; j < fishesWithSameWeight.size(); j++) {
-        fishesWithSameWeight[j].weightOfEatableFishes = eatableByThisGroup;
+    for (unsigned int j = 0; j < fishesWithSameWeight.size(); j++) {
+        fishesWithSameWeight[j]->weightOfEatableFishes = eatableByThisGroup;
     }
     weightOfSingleFishFromPreviousGroup = catfishes[0].weight;
     weightOfFishesEatableByPreviousGroup = catfishes[0].weightOfEatableFishes;
     canEatAtLeastOneFish = true;
+    //end of consideration of last group
 
     int weightOfBiggestFish = catfishes.back().weight;
 
     sort(catfishes.begin(), catfishes.end(), [](Catfish a, Catfish b) {return a.inputIndex < b.inputIndex; });
 
-    //TODO: how to declare Cattfish current here?
+    //TODO: how to declare "Catfish current;" here?
     for (int i = 0; i < n; i++) {
         Catfish current = catfishes[i];
         if (current.weightOfEatableFishes + current.weight > weightOfBiggestFish) {
