@@ -35,10 +35,11 @@ int main()
         R -= 1;
 
         vector<pair<long long,bool>> biggestTotalUtility; //till and including index, second of pair - was this group used
+        if (L < numberOfGroups) {
+            if (groupUtility[L] > 0) biggestTotalUtility.push_back(make_pair(groupUtility[L], true));
+            else biggestTotalUtility.push_back(make_pair(0, false));
+        }
         
-        if (groupUtility[L] > 0) biggestTotalUtility.push_back(make_pair(groupUtility[L], true));
-        else biggestTotalUtility.push_back(make_pair(0, false));
-
         for (int i = L+1 ; i < L + k && i <= R-k+1 ; ++i) {
             if (groupUtility[i] > 0 && biggestTotalUtility[i - L - 1].first < groupUtility[i]) {
                 biggestTotalUtility.push_back(make_pair(groupUtility[i], true));
