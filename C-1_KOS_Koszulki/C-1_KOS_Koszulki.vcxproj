@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{e7e9593c-4ded-4269-8c91-2c7e4e010d45}</ProjectGuid>
-    <RootNamespace>ZBAZbalasnsowaneslowa</RootNamespace>
+    <ProjectGuid>{c31cf58f-135a-4a09-a3e8-e993f3fed059}</ProjectGuid>
+    <RootNamespace>C1KOSKoszulki</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -88,7 +88,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ZBA_Zbalasnsowane_slowa.cpp" />
+    <ClCompile Include="C-1_KOS_Koszulki.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test01.in" />
