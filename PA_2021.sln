@@ -7,6 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZBA_Zbalasnsowane_slowa", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B-5_DES_Desant_2", "B-5_DES_Desant_2\B-5_DES_Desant_2.vcxproj", "{D4135588-E6AE-4F0F-B1D6-B5A417639612}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C-2_ZAK_Zaklocenia", "C-2_ZAK_Zaklocenia\C-2_ZAK_Zaklocenia.vcxproj", "{94F96400-0B91-4470-A9D0-41CC4824D4B8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B-1-ORA-Oranzada", "B-1-ORA-Oranzada\B-1-ORA-Oranzada.vcxproj", "{89EB2F1D-789E-4FCC-A1BA-BE4C314B2A10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
