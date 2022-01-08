@@ -24,6 +24,7 @@
     <ProjectGuid>{c8ea5a50-f6a3-49d0-a24c-08d74040d4a2}</ProjectGuid>
     <RootNamespace>A5BUTButelki</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>C-5_BUT_Butelki</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,7 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="A-5_BUT_Butelki.cpp" />
+    <ClCompile Include="C-5_BUT_Butelki.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test01.in" />
