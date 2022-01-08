@@ -7,6 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZBA_Zbalasnsowane_slowa", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B-2_PAN_Pandemia", "B-2_PAN_Pandemia\B-2_PAN_Pandemia.vcxproj", "{5F4FF5FE-52A0-400F-9A2B-C0E34322893F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C-3_SUM_Sumy", "C-3_SUM_Sumy\C-3_SUM_Sumy.vcxproj", "{6F001476-1D4A-4093-A036-B9C2413EBE76}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C-3_SUM_Sumy_TestGenerator", "C-3_SUM_Sumy_TestGenerator\C-3_SUM_Sumy_TestGenerator.vcxproj", "{2C0E8E5A-E609-4031-A5CF-6FF71B522526}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "A-5_BUT_Butelki", "A-5_BUT_Butelki\A-5_BUT_Butelki.vcxproj", "{C8EA5A50-F6A3-49D0-A24C-08D74040D4A2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B-5_DES_Desant_2", "B-5_DES_Desant_2\B-5_DES_Desant_2.vcxproj", "{D4135588-E6AE-4F0F-B1D6-B5A417639612}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C-2_ZAK_Zaklocenia", "C-2_ZAK_Zaklocenia\C-2_ZAK_Zaklocenia.vcxproj", "{94F96400-0B91-4470-A9D0-41CC4824D4B8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B-1-ORA-Oranzada", "B-1-ORA-Oranzada\B-1-ORA-Oranzada.vcxproj", "{89EB2F1D-789E-4FCC-A1BA-BE4C314B2A10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +35,6 @@ Global
 		{E7E9593C-4DED-4269-8C91-2C7E4E010D45}.Release|x64.Build.0 = Release|x64
 		{E7E9593C-4DED-4269-8C91-2C7E4E010D45}.Release|x86.ActiveCfg = Release|Win32
 		{E7E9593C-4DED-4269-8C91-2C7E4E010D45}.Release|x86.Build.0 = Release|Win32
-		{5F4FF5FE-52A0-400F-9A2B-C0E34322893F}.Debug|x64.ActiveCfg = Debug|x64
-		{5F4FF5FE-52A0-400F-9A2B-C0E34322893F}.Debug|x64.Build.0 = Debug|x64
-		{5F4FF5FE-52A0-400F-9A2B-C0E34322893F}.Debug|x86.ActiveCfg = Debug|Win32
-		{5F4FF5FE-52A0-400F-9A2B-C0E34322893F}.Debug|x86.Build.0 = Debug|Win32
-		{5F4FF5FE-52A0-400F-9A2B-C0E34322893F}.Release|x64.ActiveCfg = Release|x64
-		{5F4FF5FE-52A0-400F-9A2B-C0E34322893F}.Release|x64.Build.0 = Release|x64
-		{5F4FF5FE-52A0-400F-9A2B-C0E34322893F}.Release|x86.ActiveCfg = Release|Win32
-		{5F4FF5FE-52A0-400F-9A2B-C0E34322893F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
