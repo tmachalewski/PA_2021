@@ -1,5 +1,5 @@
 # PA_2021
-My solutions for tasks from Potyczki Algorytmiczne 2021 - polish individual algorithmic contest
+My solutions for tasks from Potyczki Algorytmiczne 2021 - Polish individual algorithmic contest
 
 ## Summary
 ### Outcome
